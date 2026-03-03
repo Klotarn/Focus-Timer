@@ -2,7 +2,6 @@
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    /* 60% filled with green, 40% left as grey */
     background: conic-gradient(#f0f0f0 0%, #ff0000 0%);
     display: flex;
     justify-content: center;
