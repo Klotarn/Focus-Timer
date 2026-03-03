@@ -1,4 +1,7 @@
-function startTimer(duration) {
+var intervals = [];
+
+function startTimer() {
+    const duration = document.querySelector('#timeInput').valueAsNumber / 1000; // Convert milliseconds to seconds
     const timerTextElement = document.querySelector('.timerText');
     const timerElement = document.querySelector('.timer');
     let timer = duration, minutes, seconds;
@@ -8,9 +11,6 @@ function startTimer(duration) {
         seconds = timer % 60;
         timerTextElement.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
         timerElement.style.background = `conic-gradient(#f0f0f0 ${(duration - timer) / duration * 100}%, #ff0000 ${(duration - timer) / duration * 100}%)`;
-        console.log(timer);
-        console.log(duration);
-        console.log((duration - timer) / duration);
 
         if (--timer < 0) {
             clearInterval(interval);
@@ -18,4 +18,10 @@ function startTimer(duration) {
         }
     }, 1000);
 
+    intervals.push(interval);
+}
+
+function stopTimer() {
+    intervals.forEach(interval => clearInterval(interval));
+    intervals = [];
 }

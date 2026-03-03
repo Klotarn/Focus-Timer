@@ -12,7 +12,9 @@
 <body>
     <div class="timer"></div>
     <p class="timerText"></p>
-    <button class="start" onclick="startTimer(300)">Start</button>
+    <input type="time" id="timeInput" step="1" value="00:00:00"></input>
+    <button class="start" onclick="startTimer()">Start</button>
+    <button class="stop" onclick="stopTimer()">Stop</button>
 </body>
 
 </html>
